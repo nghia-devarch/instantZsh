@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Kiểm tra quyền sudo ngay từ đầu tiên
+if ! sudo -v; then
+    echo "Lỗi: Xác thực sudo thất bại (sai mật khẩu hoặc không có quyền). Kịch bản đã bị hủy!"
+    exit 1
+fi
+
 echo "1. Cài đặt công cụ nền tảng..."
 sudo apt update && sudo apt install -y zsh git curl build-essential
 
